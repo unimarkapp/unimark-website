@@ -4,6 +4,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://unimark.app',
   integrations: [tailwind({
     applyBaseStyles: false
   }), sitemap()]
