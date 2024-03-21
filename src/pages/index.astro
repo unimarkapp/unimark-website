@@ -1,0 +1,40 @@
+---
+import BaseLayout from "@/layouts/base.astro";
+import Github from "@/components/icons/github.astro";
+---
+
+<BaseLayout title="Unimark">
+  <header
+    class="py-32 px-4 text-center flex-1 flex flex-col justify-center items-center"
+  >
+    <div
+      class="inline-flex px-5 bg-muted/30 py-1.5 border rounded-full text-xs uppercase font-bold tracking-widest mb-4"
+    >
+      Alpha
+    </div>
+    <h1
+      class="text-5xl md:text-7xl mb-4 font-bold mx-auto max-w-2xl bg-gradient-to-r text-transparent bg-clip-text from-sky-500 to-red-500"
+    >
+      The right place for your bookmarks.
+    </h1>
+    <p
+      class="max-w-3xl mb-8 text-muted-foreground text-xl leading-relaxed mx-auto"
+    >
+      Unimark makes it easy to manage all of your bookmarks. Use our cloud or as
+      a self-hosted and own your data.
+    </p>
+    <div class="flex items-center flex-col sm:flex-row justify-center gap-2">
+      <a
+        class="flex items-center justify-center px-8 h-10 hover:bg-primary/80 rounded-full text-primary-foreground font-semibold bg-primary"
+        href="https://cloud.unimark.app">Try it now</a
+      >
+      <a
+        class="flex items-center justify-center gap-2 px-8 h-10 hover:bg-muted/30 rounded-full font-semibold border"
+        href="https://github.com/romanslonov/unimark.app"
+      >
+        <Github />
+        Give a star
+      </a>
+    </div>
+  </header>
+</BaseLayout>

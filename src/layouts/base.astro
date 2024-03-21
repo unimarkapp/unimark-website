@@ -1,0 +1,41 @@
+---
+import "@/globals.css";
+import Navigation from "@/components/navigation.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+    <meta
+      name="description"
+      content="Unimark makes it easy to manage all of your bookmarks. Use our cloud or as a self-hosted and own your data."
+    />
+    <meta name="keywords" content="bookmarks, manager, cloud, self-hosted" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <script is:inline>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Navigation />
+    <slot />
+  </body>
+</html>
