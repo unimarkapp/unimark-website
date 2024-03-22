@@ -4,9 +4,15 @@ import Navigation from "@/components/navigation.astro";
 
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "Unimark makes it easy to manage all of your bookmarks. Use our cloud or as a self-hosted and own your data.",
+} = Astro.props;
+
+const BASE_URL = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -14,15 +20,29 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <title>{title}</title>
-    <meta
-      name="description"
-      content="Unimark makes it easy to manage all of your bookmarks. Use our cloud or as a self-hosted and own your data."
-    />
+    <meta name="description" content={description} />
     <meta name="keywords" content="bookmarks, manager, cloud, self-hosted" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:title" content="Unimark" />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={BASE_URL} />
+    <meta property="og:site_name" content="Unimark" />
+    <meta property="og:image" content={`${BASE_URL}/og-image.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Unimark" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="Unimark" />
+    <meta name="twitter:creator" content="@unimark" />
+    <meta name="twitter:title" content="Unimark" />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${BASE_URL}/og-image.png`} />
+
     <script is:inline>
       if (
         localStorage.theme === "dark" ||
