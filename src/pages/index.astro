@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "@/layouts/base.astro";
 import Github from "@/components/icons/github.astro";
+import Image from "astro/components/Image.astro";
+import appPreviewDark from "@/assets/app_preview_dark.png";
+import appPreviewLight from "@/assets/app_preview_light.png";
 ---
 
 <BaseLayout title="Unimark">
@@ -8,22 +11,24 @@ import Github from "@/components/icons/github.astro";
     class="py-32 px-4 text-center flex-1 flex flex-col justify-center items-center"
   >
     <div
-      class="inline-flex px-5 bg-muted/30 py-1.5 border rounded-full text-xs uppercase font-bold tracking-widest mb-4"
+      class="inline-flex fade-in animate-in slide-in-from-top-2 fill-mode-backwards duration-1000 delay-1000 px-5 bg-muted/30 py-1.5 border rounded-full text-xs uppercase font-bold tracking-widest mb-4"
     >
       Alpha
     </div>
     <h1
-      class="text-5xl md:text-7xl mb-4 font-bold mx-auto max-w-2xl bg-gradient-to-r text-transparent bg-clip-text from-sky-500 to-red-500"
+      class="text-5xl fade-in animate-in slide-in-from-top-2 fill-mode-backwards duration-1000 text-center md:text-7xl mb-4 font-bold mx-auto max-w-2xl bg-gradient-to-r text-transparent bg-clip-text from-sky-500 from-40% via-red-500 via-75% to-red-500"
     >
       The right place for your bookmarks.
     </h1>
     <p
-      class="max-w-3xl mb-8 text-muted-foreground text-xl leading-relaxed mx-auto"
+      class="max-w-3xl mb-8 fade-in animate-in slide-in-from-bottom-2 fill-mode-backwards duration-700 delay-700 text-muted-foreground text-xl leading-relaxed mx-auto"
     >
       Unimark makes it easy to manage all of your bookmarks. Use our cloud or as
       a self-hosted and own your data.
     </p>
-    <div class="flex items-center flex-col sm:flex-row justify-center gap-2">
+    <div
+      class="flex items-center fade-in animate-in slide-in-from-bottom-2 fill-mode-backwards duration-1000 delay-700 flex-col sm:flex-row justify-center gap-2"
+    >
       <a
         class="flex items-center justify-center px-8 h-10 hover:bg-primary/80 rounded-full text-primary-foreground font-semibold bg-primary"
         href="https://cloud.unimark.app/register"
@@ -37,6 +42,27 @@ import Github from "@/components/icons/github.astro";
         <Github />
         Give a star
       </a>
+    </div>
+
+    <div
+      class="mt-16 fade-in animate-in slide-in-from-bottom-4 fill-mode-backwards duration-1000 delay-1000"
+    >
+      <Image
+        src={appPreviewDark}
+        alt="Unimark App Preview"
+        loading="eager"
+        format="webp"
+        quality={70}
+        class="hidden shadow-lg w-full dark:block max-w-7xl mx-auto border rounded-lg"
+      />
+      <Image
+        format="webp"
+        src={appPreviewLight}
+        alt="Unimark App Preview"
+        loading="eager"
+        quality={70}
+        class="dark:hidden w-full shadow-lg max-w-7xl mx-auto border rounded-lg"
+      />
     </div>
   </header>
 </BaseLayout>
