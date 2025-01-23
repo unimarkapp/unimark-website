@@ -11,6 +11,7 @@ export default defineConfig({
   server: {
     port: 3000,
     host: true,
+    allowedHosts: ['unimark.app'],
   },
   // Needed for vite v6
   vite: {
