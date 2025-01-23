@@ -1,0 +1,39 @@
+name: Build and Deploy Astro Website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup bun
+      uses: oven-sh/setup-bun@v2
+      with:
+        bun-version: latest
+
+    - name: Install Dependencies
+      run: bun install
+
+    - name: Build Astro Project
+      run: bun run build
+
+    - name: Install Dokploy CLI
+      run: bun install -g @dokploy/cli
+
+    - name: Login to Dokploy
+      env:
+        DOKPLOY_TOKEN: ${{ secrets.DOKPLOY_TOKEN }}
+      run: dokploy auth login --token $DOKPLOY_TOKEN
+
+    - name: Deploy to Dokploy
+      env:
+        DOKPLOY_PROJECT: unimark-website-awc7kn
+        DOKPLOY_ENV: production
+      run: dokploy deploy ./dist
