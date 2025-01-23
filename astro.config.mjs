@@ -8,4 +8,8 @@ export default defineConfig({
   integrations: [tailwind({
     applyBaseStyles: false
   }), sitemap()],
+  server:{
+    port: 3000,
+    host: true
+  }
 });
