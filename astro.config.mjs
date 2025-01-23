@@ -15,7 +15,8 @@ export default defineConfig({
   // Needed for vite v6
   vite: {
     preview: {
-      allowedHosts: ['unimark.app'],
+      cors: true,
+      allowedHosts: true,
     },
   },
 });
