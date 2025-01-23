@@ -8,16 +8,4 @@ export default defineConfig({
   integrations: [tailwind({
     applyBaseStyles: false
   }), sitemap()],
-  server: {
-    port: 3000,
-    host: true,
-    allowedHosts: ['unimark.app'],
-  },
-  // Needed for vite v6
-  vite: {
-    preview: {
-      cors: true,
-      allowedHosts: true,
-    },
-  },
 });
